@@ -9,6 +9,9 @@ spring:
   # jpa:
   #   hibernate:
   #     ddl-auto: update  # Automatically updates the schema on startup
+  sql:
+    init:
+      mode: always  # Ensures data.sql runs even with Hibernate ddl-auto
 
 server:
   port: 8091
