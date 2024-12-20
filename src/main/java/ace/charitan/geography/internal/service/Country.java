@@ -18,6 +18,7 @@ class Country extends AbstractEntity {
 
     private String isoCode;
 
-    private String flagUrl;
+
+    private Long regionId;
 
 }
