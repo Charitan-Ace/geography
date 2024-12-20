@@ -4,15 +4,6 @@ CREATE TABLE region (
     name VARCHAR(255) NOT NULL  -- Name of the region, cannot be NULL
 );
 
--- Step 1: Create the Countries Table
-CREATE TABLE country (
-    id SERIAL PRIMARY KEY,              -- Auto-incrementing unique ID
-    name VARCHAR(255) NOT NULL,         -- Name of the country, cannot be NULL
-    iso_code VARCHAR(3) NOT NULL,      -- ISO code of the country
-    flag_url VARCHAR(255),              -- URL of the country's flag (optional)
-    region_id BIGINT NOT NULL,          -- Foreign key referring to the region table
-);
-
 
 -- Step 2: Insert Initial Region Data
 INSERT INTO region (name) VALUES 
