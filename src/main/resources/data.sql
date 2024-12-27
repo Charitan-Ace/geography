@@ -1,5 +1,5 @@
 -- Step 1: Create the Regions Table
-CREATE TABLE region (
+CREATE TABLE IF NOT EXISTS region (
     id SERIAL PRIMARY KEY,       -- Auto-incrementing unique ID
     name VARCHAR(255) NOT NULL  -- Name of the region, cannot be NULL
 );
@@ -16,7 +16,7 @@ INSERT INTO region (name) VALUES
     ('Antarctica');
 
 -- Step 1: Create the Countries Table
-CREATE TABLE country (
+CREATE TABLE IF NOT EXISTS country (
     id SERIAL PRIMARY KEY,              -- Auto-incrementing unique ID
     name VARCHAR(255) NOT NULL,         -- Name of the country, cannot be NULL
     iso_code VARCHAR(3) NOT NULL,      -- ISO code of the country (e.g., 'US' for United States)
