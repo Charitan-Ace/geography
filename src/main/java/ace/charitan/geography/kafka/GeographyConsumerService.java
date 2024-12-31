@@ -22,7 +22,7 @@ class GeographyConsumerService {
 
     @KafkaListener(topics = ProjectProducerTopic.PROJECT_GEOGRAPHY_GET_COUNTRY_BY_ISO_CODE, groupId = "geography-id")
     @SendTo(KafkaHeaders.REPLY_TOPIC)
-    TestKafkaMessageDto handleGetCountryByIsoCode(GetCountryByIsoCodeRequestDto dto) {
+    TestKafkaMessageDto handleGetCountryByIsoCode(TestKafkaMessageDto dto) {
         System.out.println(dto);
         // Map<String, Object> getCountryByIsoCodeRequestDto =
         // objectMapper.readValue(message, Map.class);

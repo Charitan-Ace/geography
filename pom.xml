@@ -76,7 +76,7 @@
 		<dependency>
 			<groupId>ace.charitan</groupId>
 			<artifactId>common</artifactId>
-			<version>0.0.2-SNAPSHOT</version>
+			<version>0.0.9-SNAPSHOT</version>
 			<scope>compile</scope>
 		</dependency>
 
@@ -132,5 +132,15 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<repositories>
+		<repository>
+			<id>github</id>
+			<url>https://maven.pkg.github.com/Charitan-Ace/common</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 
 </project>
