@@ -1,17 +1,14 @@
 package ace.charitan.geography.kafka;
 
-import java.util.Map;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Component;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import ace.charitan.common.dto.TestKafkaMessageDto;
-import ace.charitan.common.dto.country.GetCountryByIsoCode.GetCountryByIsoCodeRequestDto;
-import ace.charitan.geography.kafka.topic.ProjectProducerTopic;
+import ace.charitan.common.dto.geography.GetCountryByIsoCode.GetCountryByIsoCodeRequestDto;
+import ace.charitan.common.dto.geography.GetCountryByIsoCode.GetCountryByIsoCodeResponseDto;
+import ace.charitan.geography.internal.service.InternalGeographyService;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -20,14 +17,21 @@ class GeographyConsumerService {
 
     // private final ObjectMapper objectMapper;
 
-    @KafkaListener(topics = ProjectProducerTopic.PROJECT_GEOGRAPHY_GET_COUNTRY_BY_ISO_CODE, groupId = "geography")
+    @Autowired
+    private InternalGeographyService geographyService;
+
+    @KafkaListener(topics = "subscription-geography-get-country-by-iso-code", groupId = "geography")
     @SendTo(KafkaHeaders.REPLY_TOPIC)
-    TestKafkaMessageDto handleGetCountryByIsoCode(TestKafkaMessageDto dto) {
-        System.out.println("Geo receive" + dto);
-        // Map<String, Object> getCountryByIsoCodeRequestDto =
-        // objectMapper.readValue(message, Map.class);
-        // System.out.println(getCountryByIsoCodeRequestDto.get("isoCode"));
-        return new TestKafkaMessageDto("afds", "fdfds");
+    GetCountryByIsoCodeResponseDto handlGetCountryByIsoCode(GetCountryByIsoCodeRequestDto requestDto) {
+        return geographyService.getCountryByIsoCode(requestDto);
     }
+
+    // TestKafkaMessageDto handleGetCountryByIsoCode(TestKafkaMessageDto dto) {
+    // System.out.println("Geo receive" + dto);
+    // // Map<String, Object> getCountryByIsoCodeRequestDto =
+    // // objectMapper.readValue(message, Map.class);
+    // // System.out.println(getCountryByIsoCodeRequestDto.get("isoCode"));
+    // return new TestKafkaMessageDto("afds", "fdfds");
+    // }
 
 }
