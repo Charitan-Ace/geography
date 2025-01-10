@@ -21,8 +21,12 @@ class GeographyServiceImpl implements InternalGeographyService {
     public GetCountryByIsoCodeResponseDto getCountryByIsoCode(GetCountryByIsoCodeRequestDto requestDto) {
         String isoCode = requestDto.getIsoCode();
 
+        System.out.println("in" + requestDto.getIsoCode());
+
         // Find country by iso code
         Optional<Country> optionalCountry = countryRepository.findOneByIsoCode(isoCode);
+
+        System.out.println("Ok1");
 
         // Check available
         if (optionalCountry.isEmpty()) {
@@ -30,6 +34,8 @@ class GeographyServiceImpl implements InternalGeographyService {
         }
 
         Country country = optionalCountry.get();
+
+        System.out.println("Ok2");
 
         // Find region by id
         Optional<Region> optionalRegion = regionRepository.findById(country.getRegionId());
@@ -39,14 +45,12 @@ class GeographyServiceImpl implements InternalGeographyService {
             return null;
         }
 
+        System.out.println("Ok2");
         Region region = optionalRegion.get();
 
-        
-
-        GetCountryByIsoCodeResponseDto responseDto =  new GetCountryByIsoCodeResponseDto(isoCode, region.getName());
+        GetCountryByIsoCodeResponseDto responseDto = new GetCountryByIsoCodeResponseDto(isoCode, region.getName());
         System.out.println("responseDto" + region.getName());
         return responseDto;
-
 
     }
 
