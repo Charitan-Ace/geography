@@ -1,5 +1,8 @@
+DROP TABLE IF EXISTS region;
+DROP TABLE IF EXISTS country;
+
 -- Step 1: Create the Regions Table
-CREATE TABLE IF NOT EXISTS region (
+CREATE TABLE region (
     id SERIAL PRIMARY KEY,       -- Auto-incrementing unique ID
     name VARCHAR(255) NOT NULL  -- Name of the region, cannot be NULL
 );
@@ -7,16 +10,16 @@ CREATE TABLE IF NOT EXISTS region (
 
 -- Step 2: Insert Initial Region Data
 INSERT INTO region (name) VALUES 
-    ('Africa'),
-    ('Asia'),
-    ('Europe'),
-    ('North America'),
-    ('South America'),
-    ('Oceania'),
-    ('Antarctica');
+    ('AFRICA'),
+    ('ASIA'),
+    ('EUROPE'),
+    ('NORTH_AMERIA'),
+    ('SOUTH_AMERICA'),
+    ('OCEANIA'),
+    ('ANTARCTICA');
 
 -- Step 1: Create the Countries Table
-CREATE TABLE IF NOT EXISTS country (
+CREATE TABLE country (
     id SERIAL PRIMARY KEY,              -- Auto-incrementing unique ID
     name VARCHAR(255) NOT NULL,         -- Name of the country, cannot be NULL
     iso_code VARCHAR(3) NOT NULL,      -- ISO code of the country (e.g., 'US' for United States)

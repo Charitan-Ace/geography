@@ -32,16 +32,6 @@ public abstract class AbstractEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @CreatedDate
-    @Column(nullable = false, updatable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdAt;
-
-    @LastModifiedDate
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date updatedAt;
-
     public AbstractEntity(Long id) {
         this.id = id;
     }
