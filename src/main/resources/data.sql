@@ -10,13 +10,13 @@ CREATE TABLE region (
 
 -- Step 2: Insert Initial Region Data
 INSERT INTO region (name) VALUES 
-    ('Africa'),
-    ('Asia'),
-    ('Europe'),
-    ('North America'),
-    ('South America'),
-    ('Oceania'),
-    ('Antarctica');
+    ('AFRICA'),
+    ('ASIA'),
+    ('EUROPE'),
+    ('NORTH_AMERIA'),
+    ('SOUTH_AMERICA'),
+    ('OCEANIA'),
+    ('ANTARCTICA');
 
 -- Step 1: Create the Countries Table
 CREATE TABLE country (
