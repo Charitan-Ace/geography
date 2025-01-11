@@ -57,3 +57,5 @@ management:
     health:
       probes:
         enabled: true
+server:
+  port: 0
