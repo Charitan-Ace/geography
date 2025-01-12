@@ -1,5 +1,6 @@
 package ace.charitan.geography.internal.service;
 
+import ace.charitan.geography.internal.dto.InternalRegionDto;
 import ace.charitan.geography.internal.utils.AbstractEntity;
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
