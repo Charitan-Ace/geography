@@ -21,7 +21,7 @@ class GeographyConsumerService {
     private InternalGeographyService geographyService;
 
     @KafkaListener(topics = "subscription-geography-get-country-by-iso-code", groupId = "geography")
-    @SendTo(KafkaHeaders.REPLY_TOPIC)
+    @SendTo
     GetCountryByIsoCodeResponseDto handlGetCountryByIsoCode(GetCountryByIsoCodeRequestDto requestDto) {
         System.out.println("isoCode" + requestDto.getIsoCode());
         return geographyService.getCountryByIsoCode(requestDto);
